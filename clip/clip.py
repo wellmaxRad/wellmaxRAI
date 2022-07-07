@@ -194,7 +194,7 @@ def load(name: str, device: Union[str, torch.device] = "cuda" if torch.cuda.is_a
     return model, _transform(model.input_resolution.item())
 
 
-def tokenize(texts: Union[str, List[str]], context_length: int = 77, truncate: bool = False) -> Union[torch.IntTensor, torch.LongTensor]:
+def tokenize(texts: Union[str, List[str]], context_length: int = 150, truncate: bool = False) -> Union[torch.IntTensor, torch.LongTensor]:
     """
     Returns the tokenized representation of given input string(s)
 
@@ -204,7 +204,7 @@ def tokenize(texts: Union[str, List[str]], context_length: int = 77, truncate: b
         An input string or a list of input strings to tokenize
 
     context_length : int
-        The context length to use; all CLIP models use 77 as the context length
+        The context length to use; all CLIP models use 150 as the context length
 
     truncate: bool
         Whether to truncate the text in case its encoding is longer than the context length
